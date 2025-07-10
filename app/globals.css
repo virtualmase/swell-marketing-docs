@@ -1,0 +1,67 @@
+:root {
+  text-rendering: geometricprecision;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --strong: var(--gray-12);
+  --normal: var(--gray-11);
+
+  .radix-themes {
+    --header: calc(
+      var(--header-head) + var(--header-pages-nav) +
+        var(--header-mobile-sidebar-trigger)
+    );
+    --header-only: calc(var(--header-head) + var(--header-pages-nav));
+    --header-head: calc(52px * var(--scaling));
+    --header-pages-nav: calc(40px * var(--scaling));
+    --header-mobile-sidebar-trigger: calc(40px * var(--scaling));
+    --sidebar: calc(100svh - var(--header));
+    --container-4: 1280px;
+    --color-background: var(--gray-1);
+    --default-font-family: var(--font-geist-sans);
+    --code-font-family: var(--font-geist-mono);
+
+    @media (min-width: 1024px) {
+      --header: calc(var(--header-head) + var(--header-pages-nav));
+      --header-mobile-sidebar-trigger: 0;
+    }
+  }
+
+  body {
+    margin: 0;
+  }
+
+  @media (max-width: 1023px) {
+    a:active,
+    a:focus {
+      outline: none;
+    }
+  }
+}
+
+html.dark body .radix-themes {
+  --color-background: #09090b;
+}
+
+html.dark {
+  background-color: #09090b;
+}
+
+html.light body {
+  img[data-dark-only] {
+    display: none;
+  }
+  background-color: var(--gray-1);
+}
+
+html.dark body {
+  img[data-light-only] {
+    display: none;
+  }
+
+  div[data-rmiz-modal-overlay='visible'] {
+    background: var(--gray-2);
+  }
+}
